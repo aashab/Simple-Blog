@@ -1,0 +1,17 @@
+<div>
+    <label for="title">Title</label>
+    <input required value="<%= question.title %>" type="text" name="title" id="title" class="form-control" >
+</div>
+
+<div class="form-group">
+    <label for="description">Description</label>
+    <textarea name="description" id="description" class="form-control"><%= question.description %></textarea>
+</div>
+<div class="form-group">
+    <label for="text">Write your problem here</label>
+    <textarea name="text" id="text" cols="30" rows="10" class="form-control"><%= question.text %></textarea>
+</div>
+<!-- now submitting -->
+<button type="submit" class="btn btn-success">Submit</button>
+<!-- in case the user wants to cancel-->
+<a href="/" class="btn btn-danger">Cancel</a>
