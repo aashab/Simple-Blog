@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- bootstrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <meta http-equiv="X-UA-Compatible" content="ie-edge">
+    <title>Home</title>
+</head>
+<body>
+    <div class="container mb-4">
+        <h1>Welcome To Aashab's Forum</h1>
+    </div>
+    <div class="container">
+        <a href="/" class="mb-4 btn btn-success">Home</a>
+        <a href="/questions/new" class="mb-4 btn btn-primary">Ask a question</a>
+    </div>
+    <div class="container">
+        <p>A simple test forum created just for practice. It doesn't contain any fancy stuff though.</p>
+    </div>
+    <div class="container">
+        <h2>All Questions</h2>
+        <% questions.forEach(question => { %>
+            <div class="card mt-4">
+                <div class="card-body">
+                    <h4 class="card-title"><%= question.title %></h4>
+                    <div class="card-subtitle text-muted mb-2">
+                        <%= question.createdAt %>
+                    </div>
+                    <div class="card-text mb-2">
+                        <%= question.description %>
+                    </div>
+                    <!--For showing the complete question-->
+                    <a href="questions/<%= question.id %>" class="btn btn-info">Read More</a>
+                    <!-- now to delete a question -->
+                    <form action="/questions/<%= question.id %>?_method=DELETE" method="POST" class="d-inline">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+</body>
+</html>
