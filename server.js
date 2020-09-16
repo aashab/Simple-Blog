@@ -10,7 +10,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 app.set('view-engine', 'ejs');
 
-const dbURI = 'mongodb+srv://batman:__pass_use__@cluster0.m21v6.mongodb.net/<dbname>?retryWrites=true&w=majority';
+const dbURI = '';
 // now connecting to the database
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(function(result) {
